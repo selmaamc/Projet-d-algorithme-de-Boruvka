@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+
 typedef struct sommet {
 	char nom;
 } //on a crée le type sommet
