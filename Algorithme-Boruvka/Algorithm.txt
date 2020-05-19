@@ -1,0 +1,10 @@
+fonction Boruvka():
+	 G : ensemble de sommets
+	 MST ← vide (l'ensemble des arrets)
+ 	 Tant que G contient plus q'un seul element faire:
+ 		Pour tout s, sommet de G, faire
+ 			Trouver l'arête A de poids minimum adjacente à s
+			F ← F union A
+     		fin pour
+ 	fin tant que
+	renvoyer MST;
