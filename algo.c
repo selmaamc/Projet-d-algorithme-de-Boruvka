@@ -10,36 +10,68 @@ typedef struct arete {
 	sommet s2;
 	int poids;
 } arete; //on a crée le type arête
-typedef struct component {
-    sommet som[a];
-}
 
+void unionAr(sommet a,sommet b,arete aret[]) {
+	sommet T[];
+	if strcmp(a.nom,b.nom)>0{
+		T[0] = a.nom;
+		T[1] = b.nom;
+	}
+	else {
+		T[0] = b.nom;
+                T[1] = a.nom;
+        }
+	for (int i=0,i<size_of(aret),i++){
+		if (aret[i] == T)
+			k = 0;
+	    if (k == 1)
+		    aret += T;
+
+}
+}
 
 
 int main(void) {
+	int a;
+	int b;
+	arete aretes[b]; //tableau contenant toutes les arêtes du graphe
+	printf("Combien de sommets contient votre arbre ?");
+	scanf("%d",&a);
+	printf("Combien d'arêtes contient votre arbre ?");
+	scanf("%d",&b);
+	int i=0;
+	for (i=0;i<b;b++) {
+		printf("Quel est le nom du premier sommet de votre arete numero %d",i);
+		scanf("%s",&aretes[i].s1.nom);
+		printf("Quel est le nom du second sommet de votre arete numero %d",i);
+		scanf("%s",&aretes[i].s2.nom);
+		printf("Quel est le poids de votre arete numero %d",i);
+		scanf("%d",&aretes[i].poids);
+	}
+
 
 }
 
 
-void function boruvka(int a,int b) {
-component somcom.som[a]; //tableau à 2dim qui contient tout les groupes de sommets adjacents
-sommet sommets[a]; //tableau contenant tous les sommets du graphe
-arete aretes[b]; //tableau contenant toutes les arêtes du graphe
+void function boruvka(int a,int b,arete aretes[b]) {
+sommet somcom[a][a]; //tableau à 2dim qui contient tout les groupes de sommets adjacents
 arete tabfin[b]; //tableau des arêtes qui constituerons l'arbre de recouvrement minimal final
 s=0;
-while (length(somcom)!=[1][a])
+while (//somcom est vide sauf le premier element)
 {
 for (i=0;i<a;i++) //on parcourt tous les elements du tableau, cad tous les groupes de sommets adjacents
 	{
-	    arete tabAr[b]; //tableau des aretes dont tabsommets[i] est une extrimité
+	    arete tabAr[b]; //tableau des aretes dont une extrimité est en somcom.som[i] et l'autre extrimité non
 	    for (j=0;j<b;j++) //on parcourt toutes les aretes du graphes
 		    {   k=0;
-		        A=0;
-		    	for (m=0;m<length(somcom[i]);m++){
-		    		for(t=0;t<length(somcom[i]);t++) {
-		    		  if (((aretes[j].s1==somcom[i][m])&&(aretes[j].s2==somcom[i][t]))||((aretes[j].s2==somcom[i][m]))&&(aretes[j].s1==somcom[i][t]) )//si il existe dans ce groupe un sommet de cette arete et que l'autre sommet est dans un autre groupe
-		               A=1;
+		        A=1;
+		    	for (m=0;m<a;m++){
+		    		for(t=0;t<a;t++) {
+		    			for (l=0;l<a;l++){
+		    		      if (((aretes[j].s1==somcom[i][m])&&(aretes[j].s2==somcom[t][l]))||(((aretes[j].s2==somcom[i][m]))&&(aretes[j].s1==somcom[t][l]))//si un sommet est dans somcom[i] et l'autre sommet non
+		                  A=0;
 		    		}
+		    	}
 		    	}
 		        if (A=0)
 		              {
@@ -55,7 +87,7 @@ for (i=0;i<a;i++) //on parcourt tous les elements du tableau, cad tous les group
      	     if (tabAr[j].poids<w)
      	 	     areteChoisie=tabAr[j];
            }
-        tabfin[s]=areteChoisie; //on ajoute l'arête choisie au tableau tabfin
+        unionAr(areteChoisie.s1, areteChoisie.s2 ,tabfin); //on ajoute l'arête choisie au tableau tabfin
         s++;
     }
 
