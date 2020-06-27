@@ -34,71 +34,6 @@ class Graphe:
           #  rang[a_orig] += 1
     
 
-    def is_connected(self, 
-                     vertices_encountered = None, 
-                     start_vertex=None):
-        """ determines if the graph is connected """
-        if vertices_encountered is None:
-            vertices_encountered = set()
-        g = self.graph        
-       # vertices = list(gdict.keys()) # "list" necessary in Python 3 
-        if not start_vertex:
-            # chosse a vertex from graph as a starting point
-            start_vertex = 0
-        vertices_encountered.add(start_vertex)
-        if len(vertices_encountered) != len(vertices):
-            for vertex in g[start_vertex]:
-                if vertex not in vertices_encountered:
-                    if self.is_connected(vertices_encountered, vertex):
-                        return True
-        else:
-            return True
-        return False
-
-    def dfs1(x) :
-    vis1[x] = True;
-    if x not in gr1 :
-        gr1[x] = {};
-
-    for i in gr1[x] :
-        if (not vis1[i]) :
-            dfs1(i)
-
-# DFS function
-def dfs2(x) :
-
-    vis2[x] = True;
-
-    if x not in gr2 :
-        gr2[x] = {};
-
-    for i in gr2[x] :
-        if (not vis2[i]) :
-            dfs2(i);
-
-def Is_Connected(n) :
-
-    global vis1;
-    global vis2;
-
-    # Call for correct direction
-    vis1 = [False] * len(vis1);
-    dfs1(1);
-
-    # Call for reverse direction
-    vis2 = [False] * len(vis2);
-    dfs2(1);
-
-    for i in range(1, n + 1) :
-
-        # If any vertex it not visited in any direction
-        # Then graph is not connected
-        if (not vis1[i] and not vis2[i]) :
-            return False;
-
-    # If graph is connected
-    return True;
-
     def boruvka(self):
         L = []
         origine = []
@@ -146,9 +81,9 @@ def Is_Connected(n) :
 ##L = [[0, 1, 1], [0, 2,2], [1, 2, 4], [1, 3, 3], [2, 3, 5], [2, 4, 1], [3, 4, 2]]
 #g = Graphe(5)
 #g.graph = L
-#g.boruvka()
+#g.boruvka() 
 
-def main():
+def main():  # fonction pour generer des Graphs 
     S = 4
     L = []
     elements = list()
@@ -164,7 +99,6 @@ def main():
             g = Graphe(S)
             g.graph = L
             g.boruvka()
-            a = g.is_connected(vertices_encountered = None, start_vertex=None)
         print(L)
         start = time.clock()
         g = Graphe(S)
